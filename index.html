@@ -64,6 +64,238 @@
             color: #b0b0c0;
         }
 
+        /* Weather Section */
+        .weather {
+            max-width: 960px;
+            margin: 0 auto 4rem;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #f0e6d3;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #8a8a9a;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .weather-cards {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+        }
+
+        .weather-card {
+            background: #22223a;
+            border-radius: 8px;
+            padding: 1rem 0.75rem;
+            text-align: center;
+            border: 1px solid #2a2a3e;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .weather-card:hover {
+            transform: translateY(-2px);
+            border-color: #f0e6d3;
+        }
+
+        .weather-card .day {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #f0e6d3;
+            margin-bottom: 0.25rem;
+        }
+
+        .weather-card .date {
+            font-size: 0.75rem;
+            color: #8a8a9a;
+            margin-bottom: 0.5rem;
+        }
+
+        .weather-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .weather-card .desc {
+            font-size: 0.75rem;
+            color: #b0b0c0;
+            margin-bottom: 0.5rem;
+        }
+
+        .weather-card .temps {
+            font-size: 0.85rem;
+        }
+
+        .weather-card .high {
+            color: #e8c170;
+        }
+
+        .weather-card .low {
+            color: #7a8aaa;
+        }
+
+        .weather-loading, .weather-error {
+            text-align: center;
+            padding: 2rem;
+            color: #8a8a9a;
+        }
+
+        .weather-error {
+            color: #c97070;
+        }
+
+        .retry-btn {
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: transparent;
+            border: 1px solid #c97070;
+            color: #c97070;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .retry-btn:hover {
+            background: rgba(201, 112, 112, 0.1);
+        }
+
+        /* Survey Section */
+        .survey {
+            max-width: 960px;
+            margin: 0 auto 4rem;
+            padding: 0 1rem;
+        }
+
+        .survey-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .survey-option {
+            background: #22223a;
+            border: 2px solid #2a2a3e;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            user-select: none;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .survey-option:hover {
+            border-color: #555;
+        }
+
+        .survey-option.selected {
+            border-color: #f0e6d3;
+            background: rgba(240, 230, 211, 0.1);
+            color: #f0e6d3;
+        }
+
+        .survey-option .option-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .survey-option .option-label {
+            font-size: 0.95rem;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 0.75rem 2.5rem;
+            background: transparent;
+            border: 2px solid #f0e6d3;
+            color: #f0e6d3;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            transition: all 0.25s;
+        }
+
+        .submit-btn:hover {
+            background: rgba(240, 230, 211, 0.1);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .thank-you {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .thank-you h3 {
+            color: #f0e6d3;
+            font-weight: 300;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .thank-you p {
+            color: #b0b0c0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .weather-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .survey-option {
+                min-width: 130px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .weather-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .survey-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .survey-option {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -91,8 +323,163 @@
         </p>
     </section>
 
+    <!-- Weather Forecast -->
+    <section class="weather">
+        <h2 class="section-title">10-Day Forecast</h2>
+        <p class="section-subtitle">Yosemite Valley weather</p>
+        <div id="weather-content">
+            <div class="weather-loading">Loading forecast...</div>
+        </div>
+    </section>
+
+    <!-- Climbing Survey -->
+    <section class="survey">
+        <h2 class="section-title">What's Your Style?</h2>
+        <p class="section-subtitle">Tell us what type of climbing you love</p>
+
+        <div class="survey-options" id="survey-options">
+            <div class="survey-option" data-value="Bouldering">
+                <div class="option-icon">🪨</div>
+                <div class="option-label">Bouldering</div>
+            </div>
+            <div class="survey-option" data-value="Sport Climbing">
+                <div class="option-icon">🧗</div>
+                <div class="option-label">Sport Climbing</div>
+            </div>
+            <div class="survey-option" data-value="Trad Climbing">
+                <div class="option-icon">⛰️</div>
+                <div class="option-label">Trad Climbing</div>
+            </div>
+            <div class="survey-option" data-value="Free Soloing">
+                <div class="option-icon">🦅</div>
+                <div class="option-label">Free Soloing</div>
+            </div>
+            <div class="survey-option" data-value="Ice Climbing">
+                <div class="option-icon">🧊</div>
+                <div class="option-label">Ice Climbing</div>
+            </div>
+        </div>
+
+        <button class="submit-btn" id="survey-submit" disabled>Submit</button>
+
+        <div class="thank-you" id="thank-you">
+            <h3>Thanks for sharing!</h3>
+            <p id="thank-you-text"></p>
+        </div>
+    </section>
+
     <footer>
         &copy; 2026 Yosemite Climbing
     </footer>
+
+    <script>
+        // Weather codes to emoji + description
+        function getWeather(code) {
+            const map = {
+                0: ['☀️', 'Clear'],
+                1: ['🌤️', 'Mostly Clear'],
+                2: ['⛅', 'Partly Cloudy'],
+                3: ['☁️', 'Overcast'],
+                45: ['🌫️', 'Foggy'],
+                48: ['🌫️', 'Icy Fog'],
+                51: ['🌦️', 'Light Drizzle'],
+                53: ['🌦️', 'Drizzle'],
+                55: ['🌧️', 'Heavy Drizzle'],
+                61: ['🌧️', 'Light Rain'],
+                63: ['🌧️', 'Rain'],
+                65: ['🌧️', 'Heavy Rain'],
+                66: ['🌨️', 'Freezing Rain'],
+                67: ['🌨️', 'Heavy Freezing Rain'],
+                71: ['🌨️', 'Light Snow'],
+                73: ['❄️', 'Snow'],
+                75: ['❄️', 'Heavy Snow'],
+                77: ['❄️', 'Snow Grains'],
+                80: ['🌦️', 'Light Showers'],
+                81: ['🌧️', 'Showers'],
+                82: ['🌧️', 'Heavy Showers'],
+                85: ['🌨️', 'Snow Showers'],
+                86: ['🌨️', 'Heavy Snow Showers'],
+                95: ['⛈️', 'Thunderstorm'],
+                96: ['⛈️', 'Thunderstorm + Hail'],
+                99: ['⛈️', 'Heavy Thunderstorm']
+            };
+            return map[code] || ['🌡️', 'Unknown'];
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr + 'T12:00:00');
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            return {
+                day: days[date.getDay()],
+                date: months[date.getMonth()] + ' ' + date.getDate()
+            };
+        }
+
+        async function fetchWeather() {
+            const container = document.getElementById('weather-content');
+            try {
+                const url = 'https://api.open-meteo.com/v1/forecast?latitude=37.7456&longitude=-119.5936&daily=temperature_2m_max,temperature_2m_min,weathercode&temperature_unit=fahrenheit&timezone=America/Los_Angeles&forecast_days=10';
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('API error');
+                const data = await res.json();
+
+                let html = '<div class="weather-cards">';
+                for (let i = 0; i < data.daily.time.length; i++) {
+                    const { day, date } = formatDate(data.daily.time[i]);
+                    const [icon, desc] = getWeather(data.daily.weathercode[i]);
+                    const high = Math.round(data.daily.temperature_2m_max[i]);
+                    const low = Math.round(data.daily.temperature_2m_min[i]);
+
+                    html += `
+                        <div class="weather-card">
+                            <div class="day">${i === 0 ? 'Today' : day}</div>
+                            <div class="date">${date}</div>
+                            <div class="icon">${icon}</div>
+                            <div class="desc">${desc}</div>
+                            <div class="temps">
+                                <span class="high">${high}°</span>
+                                <span style="color:#555"> / </span>
+                                <span class="low">${low}°</span>
+                            </div>
+                        </div>`;
+                }
+                html += '</div>';
+                container.innerHTML = html;
+            } catch (e) {
+                container.innerHTML = `
+                    <div class="weather-error">
+                        Unable to load weather data.
+                        <br><button class="retry-btn" onclick="fetchWeather()">Retry</button>
+                    </div>`;
+            }
+        }
+
+        // Survey logic
+        document.querySelectorAll('.survey-option').forEach(option => {
+            option.addEventListener('click', () => {
+                option.classList.toggle('selected');
+                const selected = document.querySelectorAll('.survey-option.selected');
+                document.getElementById('survey-submit').disabled = selected.length === 0;
+            });
+        });
+
+        document.getElementById('survey-submit').addEventListener('click', () => {
+            const selected = Array.from(document.querySelectorAll('.survey-option.selected'))
+                .map(el => el.dataset.value);
+
+            if (selected.length === 0) return;
+
+            document.getElementById('thank-you-text').textContent =
+                'You picked: ' + selected.join(', ') + '. See you on the wall!';
+            document.getElementById('thank-you').style.display = 'block';
+            document.getElementById('survey-submit').style.display = 'none';
+            document.getElementById('survey-options').style.pointerEvents = 'none';
+            document.getElementById('survey-options').style.opacity = '0.6';
+        });
+
+        // Init
+        fetchWeather();
+    </script>
 </body>
 </html>
