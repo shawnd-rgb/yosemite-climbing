@@ -261,9 +261,153 @@
             line-height: 1.6;
         }
 
+        /* Shawn Profile Section */
+        .shawn-profile {
+            max-width: 960px;
+            margin: 0 auto 4rem;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        .shawn-profile img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border: 3px solid #2a2a3e;
+            margin-bottom: 1.5rem;
+        }
+
+        .shawn-profile .bio {
+            font-size: 1.05rem;
+            color: #b0b0c0;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Calendar Section */
+        .calendar {
+            max-width: 960px;
+            margin: 0 auto 4rem;
+            padding: 0 1rem;
+        }
+
+        .calendar-cards {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+        }
+
+        .calendar-card {
+            background: #22223a;
+            border-radius: 8px;
+            padding: 1.25rem 0.75rem;
+            text-align: center;
+            border: 1px solid #2a2a3e;
+            transition: all 0.25s;
+        }
+
+        .calendar-card .cal-day {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #f0e6d3;
+            margin-bottom: 0.25rem;
+        }
+
+        .calendar-card .cal-date {
+            font-size: 0.75rem;
+            color: #8a8a9a;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-card .signup-btn {
+            padding: 0.5rem 1.2rem;
+            background: transparent;
+            border: 1px solid #f0e6d3;
+            color: #f0e6d3;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .calendar-card .signup-btn:hover {
+            background: rgba(240, 230, 211, 0.1);
+        }
+
+        .calendar-card .signup-form {
+            display: none;
+        }
+
+        .calendar-card .signup-form input {
+            width: 100%;
+            padding: 0.4rem 0.5rem;
+            background: #1a1a2e;
+            border: 1px solid #f0e6d3;
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-family: 'Georgia', serif;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .calendar-card .signup-form input::placeholder {
+            color: #666;
+        }
+
+        .calendar-card .signup-form .confirm-btn {
+            padding: 0.35rem 1rem;
+            background: rgba(240, 230, 211, 0.15);
+            border: 1px solid #f0e6d3;
+            color: #f0e6d3;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .calendar-card .signup-form .confirm-btn:hover {
+            background: rgba(240, 230, 211, 0.25);
+        }
+
+        .calendar-card.booked {
+            border-color: #e8c170;
+            background: rgba(232, 193, 112, 0.08);
+        }
+
+        .calendar-card .booked-msg {
+            display: none;
+            font-size: 0.85rem;
+            color: #e8c170;
+            font-style: italic;
+            margin-bottom: 0.4rem;
+        }
+
+        .calendar-card .booked-name {
+            display: none;
+            font-size: 0.75rem;
+            color: #8a8a9a;
+        }
+
+        .calendar-card.booked .booked-msg,
+        .calendar-card.booked .booked-name {
+            display: block;
+        }
+
+        .calendar-card.booked .signup-btn,
+        .calendar-card.booked .signup-form {
+            display: none !important;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .weather-cards {
+            .weather-cards,
+            .calendar-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -278,10 +422,16 @@
             .section-title {
                 font-size: 1.4rem;
             }
+
+            .shawn-profile img {
+                width: 220px;
+                height: 220px;
+            }
         }
 
         @media (max-width: 480px) {
-            .weather-cards {
+            .weather-cards,
+            .calendar-cards {
                 grid-template-columns: 1fr;
             }
 
@@ -293,6 +443,11 @@
             .survey-option {
                 width: 100%;
                 max-width: 280px;
+            }
+
+            .shawn-profile img {
+                width: 180px;
+                height: 180px;
             }
         }
 
@@ -366,6 +521,25 @@
             <h3>Thanks for sharing!</h3>
             <p id="thank-you-text"></p>
         </div>
+    </section>
+
+    <!-- Shawn's Profile -->
+    <section class="shawn-profile">
+        <h2 class="section-title">Meet Your Guide</h2>
+        <p class="section-subtitle">The one and only Shawn</p>
+        <img src="Shawn.jpeg" alt="Shawn, badass rock climber, selfie on granite in Yosemite">
+        <p class="bio">
+            Shawn has been scaling Yosemite's legendary granite walls for years.
+            Whether it's a casual weekend boulder or a multi-pitch trad route,
+            he's your guy. Sign up below to join him on the rock.
+        </p>
+    </section>
+
+    <!-- Climbing Trip Sign-Up Calendar -->
+    <section class="calendar">
+        <h2 class="section-title">Book a Climbing Trip</h2>
+        <p class="section-subtitle">One spot per day — grab yours before it's gone</p>
+        <div class="calendar-cards" id="calendar-cards"></div>
     </section>
 
     <footer>
@@ -478,8 +652,63 @@
             document.getElementById('survey-options').style.opacity = '0.6';
         });
 
+        // Calendar logic
+        function initCalendar() {
+            const container = document.getElementById('calendar-cards');
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const bookings = JSON.parse(localStorage.getItem('climbBookings') || '{}');
+
+            let html = '';
+            for (let i = 0; i < 10; i++) {
+                const date = new Date();
+                date.setDate(date.getDate() + i);
+                const dateKey = date.toISOString().split('T')[0];
+                const dayName = i === 0 ? 'Today' : days[date.getDay()];
+                const dateLabel = months[date.getMonth()] + ' ' + date.getDate();
+                const booked = bookings[dateKey];
+
+                html += `
+                    <div class="calendar-card${booked ? ' booked' : ''}" data-date="${dateKey}">
+                        <div class="cal-day">${dayName}</div>
+                        <div class="cal-date">${dateLabel}</div>
+                        <div class="booked-msg">Busy climbing walls ;)</div>
+                        <div class="booked-name">${booked || ''}</div>
+                        <button class="signup-btn" onclick="showSignup(this)">Sign Up</button>
+                        <div class="signup-form">
+                            <input type="text" placeholder="Your name" maxlength="30">
+                            <br>
+                            <button class="confirm-btn" onclick="bookDay(this)">Confirm</button>
+                        </div>
+                    </div>`;
+            }
+            container.innerHTML = html;
+        }
+
+        function showSignup(btn) {
+            const card = btn.closest('.calendar-card');
+            btn.style.display = 'none';
+            card.querySelector('.signup-form').style.display = 'block';
+            card.querySelector('.signup-form input').focus();
+        }
+
+        function bookDay(btn) {
+            const card = btn.closest('.calendar-card');
+            const name = card.querySelector('.signup-form input').value.trim();
+            if (!name) return;
+
+            const dateKey = card.dataset.date;
+            const bookings = JSON.parse(localStorage.getItem('climbBookings') || '{}');
+            bookings[dateKey] = name;
+            localStorage.setItem('climbBookings', JSON.stringify(bookings));
+
+            card.classList.add('booked');
+            card.querySelector('.booked-name').textContent = name;
+        }
+
         // Init
         fetchWeather();
+        initCalendar();
     </script>
 </body>
 </html>
